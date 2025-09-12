@@ -1,3 +1,4 @@
+@import url("./globalStyles.css");
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
@@ -13,7 +14,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	font-family: 'Montserrat', sans-serif;
+	font-family: var(--font-primary);
 	height: 100vh;
 	margin: -20px 0 50px;
 }
