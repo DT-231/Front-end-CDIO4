@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+  /* Font */
+  --font-primary: "Inter", sans-serif;
+
+  /* Colors */
+  --color-black: #000000;   /* Đen */
+  --color-green: #006341;   /* Xanh */
+  --color-gray-light: #F7F7F7; /* Xám nhạt */
+  --color-gray-dark: #242221;  /* Xám đậm */
+  --color-white: #FFFFFF;   /* Trắng */
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 18px;
+  font-family: var(--font-primary);
+}
+
