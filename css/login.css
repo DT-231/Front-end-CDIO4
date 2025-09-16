@@ -2,7 +2,9 @@
 
 * {
 	box-sizing: border-box;
+	
 }
+
 
 body {
 	 background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../assets/banner.png");
@@ -19,36 +21,22 @@ body {
 
 h1 {
 	font-weight: bold;
-	margin: 30px;
+	margin: 20px;
 }
 
 h2 {
 	text-align: center;
 }
 
-p {
-	font-size: 14px;
-	font-weight: 100;
-	line-height: 20px;
-	letter-spacing: 0.5px;
-	margin: 20px 0 30px;
-}
-
-a {
-	color: #333;
-	font-size: 14px;
-	text-decoration: none;
-	margin: 15px 0;
-}
 
 button {
 	border-radius: 20px;
-	border: 1px solid #006341C2;
-	background-color:#006341C2;
+	border: 1px solid var(--color-green);
+	background-color:var(--color-green);
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
-	padding: 12px 45px;
+	padding: 12px 40px;
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
@@ -67,6 +55,13 @@ button.ghost {
 	border-color: #FFFFFF;
 }
 
+a {
+	color: var(--color-green);
+	font-size: 12px;
+	text-decoration: none;
+}
+
+
 form {
 	background-color: #FFFFFF;
 	display: flex;
@@ -82,10 +77,22 @@ input {
 	background-color: #eee;
 	border: none;
 	padding: 12px 15px;
-	margin: 8px 0;
+	margin: 5px 0;
 	width: 100%;
+	border-radius: 8px;
 }
 
+.input-group {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 5px;
+		width: 100%;
+}
+.input-group label {
+	text-align: left;
+	font-size: 14px;
+	align-self: flex-start;
+}
 .container {
 	background-color: #fff;
 	border-radius: 10px;
@@ -99,27 +106,38 @@ input {
 }
 
 .form-container {
-	position: absolute;
-	top: 0;
-	height: 100%;
-	transition: all 0.6s ease-in-out;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
 }
 
 .sign-in-container {
-	left: 0;
-	width: 50%;
-	z-index: 2;
+  left: 0;
+  width: 50%;
+  z-index: 2;
 }
 
+.sign-up-container {
+  left: 0;
+  width: 50%;
+  opacity: 0;
+  z-index: 1;
+}
 .container.right-panel-active .sign-in-container {
 	transform: translateX(100%);
 }
 
-.sign-up-container {
-	left: 0;
-	width: 50%;
-	opacity: 0;
-	z-index: 1;
+
+
+
+.form-fields {
+		width: 100%;
+		max-width: 400px;
+		margin: 0 auto 24px auto;
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
 }
 
 .container.right-panel-active .sign-up-container {
@@ -244,6 +262,7 @@ footer i {
 }
 
 footer a {
-    color: #3c97bf;
-    text-decoration: none;
+		color: #3c97bf;
+		text-decoration: none;
 }
+
