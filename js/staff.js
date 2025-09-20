@@ -1,5 +1,4 @@
 // Nhúng sidebar
-
 fetch("../components/sidebar.html")
   .then((res) => res.text())
   .then((html) => {
@@ -15,7 +14,7 @@ fetch("../components/sidebar.html")
             item.querySelector("i").classList.add("text-white");
             item.querySelector("i").classList.remove("text-[#11603c]");
             item.querySelector("span").classList.add("text-white");
-            item.querySelector("span").classList.remove("text-[#11603c]");  
+            item.querySelector("span").classList.remove("text-[#11603c]");
           } else {
             item.classList.remove("bg-[#11603c]", "text-white", "shadow-md");
             item.classList.add("text-[#11603c]");
@@ -37,40 +36,40 @@ fetch("../components/sidebar.html")
     }, 100);
   });
 
-// Fetch API staff
+// Hàm format ngày
+function formatDate(dateStr) {
+  if (!dateStr) return "—";
+  const date = new Date(dateStr);
+  const dd = String(date.getDate()).padStart(2, "0");
+  const mm = String(date.getMonth() + 1).padStart(2, "0");
+  const yyyy = date.getFullYear();
+  return `${dd}/${mm}/${yyyy}`;
+}
+
+// Hàm fetch danh sách user
 async function getUsers() {
   try {
     // Login
     const loginRes = await fetch("http://20.2.234.37:8000/api/v1/auth/login", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        username: "admin",
-        password: "123456"
-      })
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username: "admin", password: "123456" }),
     });
-
     const loginData = await loginRes.json();
-    console.log("Login response:", loginData);
-
-    // Lấy token từ response
     const token = loginData.data.token.access_token;
-    console.log("Token:", token);
 
-    // Gọi API users/list
-    const usersRes = await fetch("http://20.2.234.37:8000/api/v1/users/list?page=1&page_size=10", {
-      headers: {
-        "Authorization": `Bearer ${token}`
-      }
-    });
-
+    // Lấy danh sách users
+    const usersRes = await fetch(
+      "http://20.2.234.37:8000/api/v1/users/list?page=1&page_size=10",
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
     const response = await usersRes.json();
-    const staffList = response.data; // ✅ danh sách nhân viên
+    const staffList = response.data || [];
+
+    // Render mặc định grid
     renderStaff(staffList, "grid");
 
-    // Gắn sự kiện đổi view (nên để ở đây vì cần staffList)
+    // Gắn sự kiện đổi view
     document.getElementById("grid-view-btn").onclick = function () {
       this.classList.add("active-view");
       document.getElementById("list-view-btn").classList.remove("active-view");
@@ -82,7 +81,6 @@ async function getUsers() {
       document.getElementById("grid-view-btn").classList.remove("active-view");
       renderStaff(staffList, "list");
     };
-
   } catch (error) {
     console.error("Lỗi:", error);
     document.getElementById("staff-container").innerHTML =
@@ -90,14 +88,7 @@ async function getUsers() {
   }
 }
 
-// Gắn sự kiện thêm nhân viên (cái này độc lập nên để ngoài)
-document.getElementById("add-staff-btn").onclick = function () {
-  alert("Chức năng thêm nhân viên!");
-};
-
-// Gọi hàm load user
-getUsers();
-
+// Render Staff
 function renderStaff(staffList, view = "grid") {
   const container = document.getElementById("staff-container");
   container.innerHTML = "";
@@ -114,15 +105,20 @@ function renderStaff(staffList, view = "grid") {
       const tpl = document
         .getElementById("staff-card-template")
         .content.cloneNode(true);
+
+      // Gán dữ liệu
       tpl.querySelector(".staff-name").textContent = staff.full_name;
       tpl.querySelector(".staff-role").textContent =
         staff.role_id === 3 ? "Staff" : staff.role_id;
       tpl.querySelector(".staff-id").textContent = staff.id;
       tpl.querySelector(".staff-phone").textContent = staff.phone || "N/A";
-      tpl.querySelector(".staff-date").textContent = staff.created_at || "—";
+      tpl.querySelector(".staff-date").textContent = formatDate(
+        staff.created_at
+      );
       tpl.querySelector(".staff-status").textContent = staff.is_active
-        ? "Active"
-        : "Inactive";
+        ? "Đang làm việc"
+        : "Ngưng hoạt động";
+
       container.appendChild(tpl);
     });
   } else {
@@ -131,16 +127,29 @@ function renderStaff(staffList, view = "grid") {
       const tpl = document
         .getElementById("staff-list-template")
         .content.cloneNode(true);
+
+      // Gán dữ liệu
       tpl.querySelector(".staff-name").textContent = staff.full_name;
       tpl.querySelector(".staff-role").textContent =
         staff.role_id === 3 ? "Staff" : staff.role_id;
       tpl.querySelector(".staff-id").textContent = staff.id;
       tpl.querySelector(".staff-phone").textContent = staff.phone || "N/A";
-      tpl.querySelector(".staff-date").textContent = staff.created_at || "—";
+      tpl.querySelector(".staff-date").textContent = formatDate(
+        staff.created_at
+      );
       tpl.querySelector(".staff-status").textContent = staff.is_active
-        ? "Active"
-        : "Inactive";
+        ? "Đang làm việc"
+        : "Ngưng hoạt động";
+
       container.appendChild(tpl);
     });
   }
 }
+
+// Gắn sự kiện thêm nhân viên
+document.getElementById("add-staff-btn").onclick = function () {
+  alert("Chức năng thêm nhân viên!");
+};
+
+// Chạy hàm load user
+getUsers();
