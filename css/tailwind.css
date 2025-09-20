@@ -1,0 +1,6 @@
+@import url("./globalStyles.css");
+
+@import "tailwindcss";
+@theme {
+  --color-primary: var(--color-gray-light);
+}
