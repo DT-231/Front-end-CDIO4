@@ -80,6 +80,7 @@ input {
 	background-color: #eee;
 	border: none;
 	padding: 12px 15px;
+
 	width: 100%;
 	border-radius: 8px;
 	margin-top: 10px;
@@ -93,6 +94,7 @@ input {
 }
 .input-group label {
 	margin-top: 5px;
+
 	text-align: left;
 	font-size: 14px;
 	align-self: flex-start;
@@ -131,6 +133,7 @@ input {
 .container.right-panel-active .sign-in-container {
 	transform: translateX(100%);
 }
+
 
 
 .form-fields {
