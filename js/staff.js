@@ -1,4 +1,5 @@
 // Nhúng sidebar
+
 fetch("../components/sidebar.html")
   .then((res) => res.text())
   .then((html) => {
@@ -14,7 +15,7 @@ fetch("../components/sidebar.html")
             item.querySelector("i").classList.add("text-white");
             item.querySelector("i").classList.remove("text-[#11603c]");
             item.querySelector("span").classList.add("text-white");
-            item.querySelector("span").classList.remove("text-[#11603c]");
+            item.querySelector("span").classList.remove("text-[#11603c]");  
           } else {
             item.classList.remove("bg-[#11603c]", "text-white", "shadow-md");
             item.classList.add("text-[#11603c]");
@@ -37,40 +38,65 @@ fetch("../components/sidebar.html")
   });
 
 // Fetch API staff
-document.addEventListener("DOMContentLoaded", () => {
-  fetch(
-    "http://20.2.234.37:8000/api/v1/users/list?page=1&page_size=20&role_id=3"
-  )
-    .then((res) => res.json())
-    .then((response) => {
-      const staffList = response.data; // ✅ lấy đúng danh sách nhân viên
-      renderStaff(staffList, "grid");
-
-      document.getElementById("grid-view-btn").onclick = function () {
-        this.classList.add("active-view");
-        document
-          .getElementById("list-view-btn")
-          .classList.remove("active-view");
-        renderStaff(staffList, "grid");
-      };
-      document.getElementById("list-view-btn").onclick = function () {
-        this.classList.add("active-view");
-        document
-          .getElementById("grid-view-btn")
-          .classList.remove("active-view");
-        renderStaff(staffList, "list");
-      };
-    })
-    .catch((err) => {
-      console.error(err);
-      document.getElementById("staff-container").innerHTML =
-        '<div class="col-span-5 text-center text-red-500">Không thể tải dữ liệu nhân viên!</div>';
+async function getUsers() {
+  try {
+    // Login
+    const loginRes = await fetch("http://20.2.234.37:8000/api/v1/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        username: "admin",
+        password: "123456"
+      })
     });
 
-  document.getElementById("add-staff-btn").onclick = function () {
-    alert("Chức năng thêm nhân viên!");
-  };
-});
+    const loginData = await loginRes.json();
+    console.log("Login response:", loginData);
+
+    // Lấy token từ response
+    const token = loginData.data.token.access_token;
+    console.log("Token:", token);
+
+    // Gọi API users/list
+    const usersRes = await fetch("http://20.2.234.37:8000/api/v1/users/list?page=1&page_size=10", {
+      headers: {
+        "Authorization": `Bearer ${token}`
+      }
+    });
+
+    const response = await usersRes.json();
+    const staffList = response.data; // ✅ danh sách nhân viên
+    renderStaff(staffList, "grid");
+
+    // Gắn sự kiện đổi view (nên để ở đây vì cần staffList)
+    document.getElementById("grid-view-btn").onclick = function () {
+      this.classList.add("active-view");
+      document.getElementById("list-view-btn").classList.remove("active-view");
+      renderStaff(staffList, "grid");
+    };
+
+    document.getElementById("list-view-btn").onclick = function () {
+      this.classList.add("active-view");
+      document.getElementById("grid-view-btn").classList.remove("active-view");
+      renderStaff(staffList, "list");
+    };
+
+  } catch (error) {
+    console.error("Lỗi:", error);
+    document.getElementById("staff-container").innerHTML =
+      '<div class="col-span-5 text-center text-red-500">Không thể tải dữ liệu nhân viên!</div>';
+  }
+}
+
+// Gắn sự kiện thêm nhân viên (cái này độc lập nên để ngoài)
+document.getElementById("add-staff-btn").onclick = function () {
+  alert("Chức năng thêm nhân viên!");
+};
+
+// Gọi hàm load user
+getUsers();
 
 function renderStaff(staffList, view = "grid") {
   const container = document.getElementById("staff-container");
