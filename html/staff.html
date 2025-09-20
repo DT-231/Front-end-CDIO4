@@ -1,137 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Staff Manager</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    
-    <style>
-      .main-content {
-        margin-left: 110px;
-      }
-      .active-view {
-        background: #11603c;
-        color: #fff;
-      }
-    </style>
-  </head>
-  <body class="bg-[#181818]">
-    <!-- Sidebar sẽ được nhúng vào đây -->
-    <div id="sidebar-container"></div>
 
-    <div class="main-content min-h-screen bg-[#f6f6f6]">
-      <!-- Header -->
-      <div
-        class="flex items-center justify-between px-6 py-2 border-b bg-white"
-      >
-        <div class="text-lg font-semibold">Staff Manager</div>
-        <div class="flex items-center gap-4">
-          <!-- Search icon -->
-          <button
-            class="w-12 h-12 flex items-center justify-center rounded-full border border-gray-200 bg-white hover:bg-gray-100 transition"
-          >
-            <i class="fa-solid fa-magnifying-glass text-xl"></i>
-          </button>
-          <!-- Bell icon -->
-          <button
-            class="w-12 h-12 flex items-center justify-center rounded-full border border-gray-200 bg-white hover:bg-gray-100 transition"
-          >
-            <i class="fa-regular fa-bell text-xl"></i>
-          </button>
-          <!-- Avatar -->
-          <div
-            class="flex items-center px-3 py-1 rounded-full border border-gray-200 bg-white"
-            style="height: 48px"
-          >
-            <div class="w-8 h-8 rounded-full overflow-hidden">
-              <img
-                src="../assets/avatar.webp"
-                alt="avatar"
-                class="w-8 h-8 rounded-full object-cover"
-              />
-            </div>
-            <i class="fa-solid fa-chevron-down text-lg text-gray-700 ml-3"></i>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Staff Manager</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    .main-content {
+      margin-left: 110px;
+    }
+
+    .active-view {
+      background: #11603c;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body class="bg-[#181818]">
+  <!-- Sidebar sẽ được nhúng vào đây -->
+  <div id="sidebar-container"></div>
+
+  <div class="main-content min-h-screen bg-[#f6f6f6]">
+    <!-- Header -->
+    <div class="flex items-center justify-between px-6 py-2 border-b bg-white">
+      <div class="text-lg font-semibold">Staff Manager</div>
+      <div class="flex items-center gap-4">
+        <!-- Search icon -->
+        <button
+          class="w-12 h-12 flex items-center justify-center rounded-full border border-gray-200 bg-white hover:bg-gray-100 transition">
+          <i class="fa-solid fa-magnifying-glass text-xl"></i>
+        </button>
+        <!-- Bell icon -->
+        <button
+          class="w-12 h-12 flex items-center justify-center rounded-full border border-gray-200 bg-white hover:bg-gray-100 transition">
+          <i class="fa-regular fa-bell text-xl"></i>
+        </button>
+        <!-- Avatar -->
+        <div class="flex items-center px-3 py-1 rounded-full border border-gray-200 bg-white" style="height: 48px">
+          <div class="w-8 h-8 rounded-full overflow-hidden">
+            <img src="../assets/avatar.webp" alt="avatar" class="w-8 h-8 rounded-full object-cover" />
           </div>
+          <i class="fa-solid fa-chevron-down text-lg text-gray-700 ml-3"></i>
         </div>
-      </div>
-
-      <!-- Content -->
-      <div class="p-8">
-        <div class="flex items-center justify-between mb-6">
-          <div class="text-xl font-semibold">Staff List</div>
-          <div class="flex items-center gap-3">
-            <button
-              id="add-staff-btn"
-              class="bg-[#11603c] text-white px-5 py-2 rounded-lg font-semibold hover:bg-[#0d4c2a] transition"
-            >
-              Thêm nhân viên
-            </button>
-            <button
-              id="grid-view-btn"
-              class="w-10 h-10 flex items-center justify-center rounded-lg border hover:bg-gray-100 active-view"
-            >
-              <i class="fa-solid fa-table-cells-large text-xl"></i>
-            </button>
-            <button
-              id="list-view-btn"
-              class="w-10 h-10 flex items-center justify-center rounded-lg border hover:bg-gray-100"
-            >
-              <i class="fa-solid fa-list text-xl"></i>
-            </button>
-          </div>
-        </div>
-
-        <!-- Staff Container -->
-        <div id="staff-container" class="grid grid-cols-5 gap-6"></div>
       </div>
     </div>
 
-    <!-- Template thẻ staff (dùng fetch để đổ dữ liệu) -->
-    <template id="staff-card-template">
-      <div class="bg-white rounded-xl shadow overflow-hidden">
-        <div class="bg-[#11603c] px-0 py-3 flex flex-col items-center">
-          <span
-            class="bg-white text-[#11603c] text-xs font-bold px-3 py-1 rounded-full mb-2 staff-status"
-          >
-            Đang làm việc
-          </span>
-          <div
-            class="w-14 h-14 bg-black rounded-full flex items-center justify-center text-white text-xl font-bold mb-2"
-          >
-            NV
-          </div>
-        </div>
-        <div class="px-4 py-3 text-center">
-          <div class="font-bold text-lg staff-name"></div>
-          <div class="text-[#11603c] font-semibold mb-1 staff-role"></div>
-          <div class="text-sm text-left">
-            <div>
-              Mã NV:
-              <span class="font-bold text-[#11603c] staff-id"></span>
-            </div>
-            <div>
-              Ca làm:
-              <span class="font-bold text-[#11603c] staff-shift"></span>
-            </div>
-            <div>
-              Điện thoại:
-              <span class="text-[#11603c] staff-phone"></span>
-            </div>
-            <div>
-              Ngày vào:
-              <span class="text-[#11603c] staff-date"></span>
-            </div>
-          </div>
+    <!-- Content -->
+    <div class="p-8">
+      <div class="flex items-center justify-between mb-6">
+        <div class="text-xl font-semibold">Staff List</div>
+        <div class="flex items-center gap-3">
+          <button id="add-staff-btn"
+            class="bg-[#11603c] text-white px-5 py-2 rounded-lg font-semibold hover:bg-[#0d4c2a] transition">
+            Thêm nhân viên
+          </button>
+          <button id="grid-view-btn"
+            class="w-10 h-10 flex items-center justify-center rounded-lg border hover:bg-gray-100 active-view">
+            <i class="fa-solid fa-table-cells-large text-xl"></i>
+          </button>
+          <button id="list-view-btn"
+            class="w-10 h-10 flex items-center justify-center rounded-lg border hover:bg-gray-100">
+            <i class="fa-solid fa-list text-xl"></i>
+          </button>
         </div>
       </div>
-    </template>
 
-    <!-- JS -->
-    <script src="../js/staff.js"></script>
-  </body>
+      <!-- Staff Container -->
+      <div id="staff-container" class="grid grid-cols-5 gap-6"></div>
+    </div>
+  </div>
+
+  <!-- Template thẻ staff (dùng fetch để đổ dữ liệu) -->
+  <template id="staff-card-template">
+    <div class="bg-white rounded-xl shadow overflow-hidden">
+      <div class="bg-[#11603c] px-0 py-3 flex flex-col items-center">
+        <span class="bg-white text-[#11603c] text-xs font-bold px-3 py-1 rounded-full mb-2 staff-status">
+          Đang làm việc
+        </span>
+        <div class="w-14 h-14 bg-black rounded-full flex items-center justify-center text-white text-xl font-bold mb-2">
+          NV
+        </div>
+      </div>
+      <div class="px-4 py-3 text-center">
+        <div class="font-bold text-lg staff-name"></div>
+        <div class="text-[#11603c] font-semibold mb-1 staff-role"></div>
+
+        <div class="text-sm text-left mb-3">
+          <div>
+            Mã NV:
+            <span class="font-bold text-[#11603c] staff-id"></span>
+          </div>
+          <div>
+            Ca làm:
+            <span class="font-bold text-[#11603c] staff-shift"></span>
+          </div>
+          <div>
+            Điện thoại:
+            <span class="text-[#11603c] staff-phone"></span>
+          </div>
+          <div>
+            Ngày vào:
+            <span class="text-[#11603c] staff-date"></span>
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex justify-center gap-3">
+          <button
+            class="px-4 font-bold py-1 border border-[#11603c] text-[#11603c] rounded-full hover:bg-[#11603c] hover:text-white transition">
+            Chi tiết
+          </button>
+          <button class="px-4 font-bold py-1 bg-[#11603c] text-white rounded-full hover:opacity-90 transition">
+            Liên hệ
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </template>
+
+  <template id="staff-list-template">
+  <div class="bg-white rounded-xl shadow flex items-center justify-between px-4 py-3">
+    <!-- Avatar -->
+    <div class="flex items-center gap-3 w-1/4">
+      <div class="w-10 h-10 bg-black text-white flex items-center justify-center rounded-full font-bold">NV</div>
+      <div>
+        <div class="font-bold staff-name"></div>
+        <div class="text-[#11603c] text-sm staff-role"></div>
+      </div>
+    </div>
+
+    <!-- Mã NV -->
+    <div class="font-bold w-1/12 staff-id"></div>
+
+    <!-- Ca làm -->
+    <div class="w-1/6">
+      <span class="px-3 py-1 text-sm rounded-full bg-green-100 text-[#11603c] font-semibold staff-shift"></span>
+    </div>
+
+    <!-- Số điện thoại -->
+    <div class="w-1/6 staff-phone"></div>
+
+    <!-- Ngày vào -->
+    <div class="w-1/6 staff-date"></div>
+
+    <!-- Trạng thái -->
+    <div class="flex items-center gap-2 w-1/6">
+      <span class="w-2 h-2 bg-green-600 rounded-full"></span>
+      <span class="text-[#11603c] font-semibold staff-status">Đang làm việc</span>
+    </div>
+  </div>
+</template>
+
+  <!-- JS -->
+  <script src="../js/staff.js"></script>
+</body>
+
 </html>
