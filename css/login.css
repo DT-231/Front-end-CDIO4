@@ -4,7 +4,6 @@
 
   box-sizing: border-box;
 
-}
 
 
 body {
@@ -139,6 +138,26 @@ input {
   transform: translateX(100%);
 }
 
+.sign-up-container {
+  left: 0;
+  width: 50%;
+  opacity: 0;
+  z-index: 1;
+}
+.container.right-panel-active .sign-in-container {
+	transform: translateX(100%);
+}
+
+
+.form-fields {
+		width: 100%;
+		max-width: 400px;
+		margin: 0 auto 24px auto;
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+}
+
 .container.right-panel-active .sign-up-container {
   transform: translateX(100%);
   opacity: 1;
@@ -263,7 +282,6 @@ footer i {
 }
 
 footer a {
-
 		color: #3c97bf;
 		text-decoration: none;
 }
