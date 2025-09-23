@@ -1,177 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Choose Category</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <!-- Liên kết CSS -->
-    <link rel="stylesheet" href="../css/choose.css" />
-  </head>
-  <body class="bg-[#181818]">
-    <!-- Sidebar -->
-    <div id="sidebar-container"></div>
 
-    <!-- Main content -->
-    <div class="main-content min-h-screen bg-[#f6f6f6]">
-      <!-- Header -->
-      <header
-        class="flex items-center justify-between px-8 py-4 border-b bg-white"
-      >
-        <h1 class="text-xl font-semibold">Choose category</h1>
-        <div class="relative">
-          <input
-            type="text"
-            id="search-input"
-            placeholder="Search category or menu"
-            class="pl-4 pr-10 py-2 rounded-full border border-gray-300 focus:outline-none focus:border-[#11603c] w-80"
-          />
-          <i
-            class="fa-solid fa-magnifying-glass absolute right-4 top-1/2 -translate-y-1/2 text-gray-500"
-          ></i>
-        </div>
-      </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Choose Category</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Liên kết CSS -->
+  <link rel="stylesheet" href="../css/choose.css" />
+</head>
 
-      <!-- Category buttons -->
-      <section class="px-8 py-4">
-        <div class="flex gap-4 mb-4">
-          <!-- Add new -->
-          <button
-            class="flex flex-col items-center justify-center w-16 h-16 rounded-lg bg-[#e6faf3]"
-          >
-            <i class="fa-solid fa-plus text-3xl text-[#11603c]"></i>
-          </button>
+<body class="bg-[#181818]">
+  <!-- Sidebar -->
+  <div id="sidebar-container"></div>
 
-          <!-- All -->
-          <button
-            data-category="all"
-            class="category-btn flex flex-col items-center justify-center w-16 h-16 rounded-lg border-2 border-[#11603c] bg-white text-[#11603c] font-bold active-category"
-          >
-            <i class="fa-solid fa-table-cells-large text-2xl mb-1"></i>
-            <span class="text-base">All</span>
-          </button>
+  <!-- Main content -->
+  <div class="main-content min-h-screen bg-[#f6f6f6]">
+    <!-- Header -->
+    <header class="flex items-center justify-between px-8 py-4 border-b bg-white">
+      <h1 class="text-xl font-semibold">Choose category</h1>
+      <div class="relative">
+        <input type="text" id="search-input" placeholder="Search category or menu"
+          class="pl-4 pr-10 py-2 rounded-full border border-gray-300 focus:outline-none focus:border-[#11603c] w-80" />
+        <i class="fa-solid fa-magnifying-glass absolute right-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
+      </div>
+    </header>
 
-          <!-- Coffee -->
-          <button
-            data-category="coffee"
-            class="category-btn flex flex-col items-center justify-center w-16 h-16 rounded-lg bg-white text-[#11603c]"
-          >
-            <img
-              src="../assets/coffee.webp"
-              alt="Coffee"
-              class="w-8 h-8 mb-1"
-            />
-            <span class="text-base font-semibold">Coffee</span>
-          </button>
+    <!-- Category buttons -->
+    <section class="px-8 py-4">
+      <div class="flex gap-4 mb-4">
+        <!-- Add new -->
+        <button class="flex flex-col items-center justify-center w-16 h-16 rounded-lg bg-[#e6faf3]">
+          <i class="fa-solid fa-plus text-3xl text-[#11603c]"></i>
+        </button>
 
-          <!-- Tea -->
-          <button
-            data-category="tea"
-            class="category-btn flex flex-col items-center justify-center w-16 h-16 rounded-lg bg-white text-[#11603c]"
-          >
-            <i class="fa-solid fa-leaf text-2xl mb-1"></i>
-            <span class="text-base font-semibold">Tea</span>
-          </button>
+        <!-- All -->
+        <button data-category="all"
+          class="category-btn flex flex-col items-center justify-center w-16 h-16 rounded-lg border-2 border-[#11603c] bg-white text-[#11603c] font-bold active-category">
+          <i class="fa-solid fa-table-cells-large text-2xl mb-1"></i>
+          <span class="text-base">All</span>
+        </button>
 
-          <!-- Juice -->
-          <button
-            data-category="juice"
-            class="category-btn flex flex-col items-center justify-center w-16 h-16 rounded-lg bg-white text-[#11603c]"
-          >
-            <i class="fa-solid fa-wine-glass text-2xl mb-1"></i>
-            <span class="text-base font-semibold">Juice</span>
-          </button>
-        </div>
+        <!-- Coffee -->
+        <button data-category="coffee"
+          class="category-btn flex flex-col items-center justify-center w-16 h-16 rounded-lg bg-white text-[#11603c]">
+          <img src="../assets/coffee.webp" alt="Coffee" class="w-8 h-8 mb-1" />
+          <span class="text-base font-semibold">Coffee</span>
+        </button>
 
-        <!-- Action button -->
-        <div class="flex justify-end mb-4">
-          <button
-            class="bg-[#11603c] text-white px-8 py-2 rounded-lg font-semibold hover:bg-[#0d4c2a] transition"
-          >
-            Thêm món
-          </button>
-        </div>
+        <!-- Tea -->
+        <button data-category="tea"
+          class="category-btn flex flex-col items-center justify-center w-16 h-16 rounded-lg bg-white text-[#11603c]">
+          <i class="fa-solid fa-leaf text-2xl mb-1"></i>
+          <span class="text-base font-semibold">Tea</span>
+        </button>
 
-        <!-- Menu container -->
-        <div id="menu-container" class="grid grid-cols-3 gap-6"></div>
-      </section>
-    </div>
-
-    <!-- Template for menu card -->
-    <template id="menu-card-template">
-      <div class="menu-card bg-white rounded-xl shadow p-4 flex flex-col gap-2">
-        <div class="flex gap-3 items-start mb-2">
-          <img src="" class="menu-img w-16 h-16 rounded-lg object-cover" />
-          <div class="flex-1">
-            <div class="font-bold text-base menu-name"></div>
-            <div class="text-gray-500 text-xs menu-desc"></div>
-            <div class="font-semibold text-[#11603c] text-sm menu-price"></div>
-          </div>
-        </div>
-        <!-- Nhiệt độ & Size -->
-        <div class="flex gap-4 mb-2">
-          <div>
-            <div class="text-sm font-semibold mb-1">Nhiệt độ</div>
-            <div class="flex gap-2">
-              <div class="circle-btn bg-[#e6faf3]">
-                <i class="fa-solid fa-fire text-red-500"></i>
-              </div>
-              <div class="circle-btn bg-[#e6faf3]">
-                <i class="fa-solid fa-snowflake text-blue-500"></i>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div class="text-sm font-semibold mb-1">Size</div>
-            <div class="flex gap-2">
-              <div class="circle-btn bg-[#e6faf3]">S</div>
-              <div class="circle-btn bg-[#e6faf3] border-2 border-[#11603c]">
-                M
-              </div>
-              <div class="circle-btn bg-[#e6faf3]">L</div>
-            </div>
-          </div>
-        </div>
-        <!-- Đường & Đá -->
-        <div class="flex gap-4 mb-2">
-          <div>
-            <div class="text-sm font-semibold mb-1">Đường</div>
-            <div class="flex gap-2">
-              <div class="circle-btn bg-[#e6faf3]">0%</div>
-              <div class="circle-btn bg-[#e6faf3]">30%</div>
-              <div class="circle-btn bg-[#e6faf3]">50%</div>
-              <div class="circle-btn bg-[#e6faf3]">70%</div>
-              <div class="circle-btn bg-[#e6faf3] border-2 border-[#11603c]">
-                100%
-              </div>
-            </div>
-          </div>
-          <div>
-            <div class="text-sm font-semibold mb-1">Đá</div>
-            <div class="flex gap-2">
-              <div class="circle-btn bg-[#e6faf3]">0%</div>
-              <div class="circle-btn bg-[#e6faf3]">30%</div>
-              <div class="circle-btn bg-[#e6faf3]">50%</div>
-              <div class="circle-btn bg-[#e6faf3]">70%</div>
-              <div class="circle-btn bg-[#e6faf3] border-2 border-[#11603c]">
-                100%
-              </div>
-            </div>
-          </div>
-        </div>
-        <button
-          class="bg-[#11603c] text-white rounded-lg py-2 mt-2 font-semibold hover:bg-[#0d4c2a] transition"
-        >
-          Chỉnh sửa món
+        <!-- Juice -->
+        <button data-category="juice"
+          class="category-btn flex flex-col items-center justify-center w-16 h-16 rounded-lg bg-white text-[#11603c]">
+          <i class="fa-solid fa-wine-glass text-2xl mb-1"></i>
+          <span class="text-base font-semibold">Juice</span>
         </button>
       </div>
-    </template>
 
-    <!-- Script -->
-    <script src="../js/choose.js"></script>
-  </body>
+      <!-- Action button -->
+      <div class="flex justify-end mb-4">
+        <button class="bg-[#11603c] text-white px-8 py-2 rounded-lg font-semibold hover:bg-[#0d4c2a] transition">
+          Thêm món
+        </button>
+      </div>
+
+      <!-- Menu container -->
+      <div id="menu-container" class="grid grid-cols-4 gap-6 px-8 pb-8 w-[95%]"></div>
+      <!-- Menu card -->
+      <template id="menu-card-template">
+        <div class="menu-card bg-white rounded-xl shadow-md p-3 flex flex-col h-[360px] w-[280px]">
+
+          <!-- Ảnh + Thông tin -->
+          <div class="flex gap-2 items-start mb-2">
+            <img src="" class="menu-img w-16 h-16 rounded-md object-cover flex-shrink-0" />
+            <div class="flex-1">
+              <div class="text-base font-semibold menu-name"></div>
+              <div class="text-gray-500 text-xs menu-desc"></div>
+              <div class="text-sm font-semibold text-[#11603c] menu-price"></div>
+            </div>
+          </div>
+
+          <!-- Nhiệt độ & Size -->
+          <div class="grid grid-cols-2 gap-2 mb-2 w-[90%]">
+            <div>
+              <div class="text-xs font-semibold mb-1">Nhiệt độ</div>
+              <div class="flex gap-1">
+                <div class="circle-btn"><i class="fa-solid fa-fire text-red-500"></i></div>
+                <div class="circle-btn"><i class="fa-solid fa-snowflake text-blue-500"></i></div>
+              </div>
+            </div>
+            <div>
+              <div class="text-xs font-semibold mb-1">Size</div>
+              <div class="flex gap-1">
+                <div class="circle-btn">S</div>
+                <div class="circle-btn active">M</div>
+                <div class="circle-btn">L</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Đường -->
+          <div class="mb-2">
+            <div class="text-xs font-semibold mb-1">Đường</div>
+            <div class="flex flex-wrap gap-4">
+              <div class="circle-btn">0%</div>
+              <div class="circle-btn">30%</div>
+              <div class="circle-btn">50%</div>
+              <div class="circle-btn">70%</div>
+              <div class="circle-btn active">100%</div>
+            </div>
+          </div>
+
+          <!-- Đá -->
+          <div class="mb-2">
+            <div class="text-xs font-semibold mb-1">Đá</div>
+            <div class="flex flex-wrap gap-4">
+              <div class="circle-btn">0%</div>
+              <div class="circle-btn">30%</div>
+              <div class="circle-btn">50%</div>
+              <div class="circle-btn">70%</div>
+              <div class="circle-btn">100%</div>
+            </div>
+          </div>
+
+          <!-- Button -->
+          <div class="mt-auto">
+            <button
+              class="w-full bg-[#11603c] text-white rounded-md py-2 text-sm font-semibold hover:bg-[#0d4c2a] transition">
+              Chỉnh sửa món
+            </button>
+          </div>
+        </div>
+      </template>
+
+
+      <!-- Script -->
+      <script src="../js/choose.js"></script>
+</body>
+
 </html>
