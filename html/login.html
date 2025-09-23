@@ -47,6 +47,69 @@
           </div>
         </form>
       </div>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Đăng nhập hoặc tạo tài khoản</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	<link rel="stylesheet" href="../css/login.css">
+</head>
+
+<body>
+	<div class="container" id="container">
+
+		<div class="form-container sign-up-container">
+			<form action="dangky.php" method="POST">
+				<h1>ĐĂNG KÝ</h1>
+				<div class="form-fields">
+					<div class="input-group">
+						<label for="tendangnhap">Tên đăng nhập</label>
+						<input type="text" name="tendangnhap" placeholder="Tên đăng nhập" />
+					</div>
+					<div class="input-group">
+						<label for="hovaten">Họ và tên</label>
+						<input type="text" name="hovaten" placeholder="Họ và tên" />
+					</div>
+					<!-- <div class="input-group">
+						<label for="sodienthoai">Số điện thoại</label>
+						<input type="text" name="sodienthoai" placeholder="Số điện thoại" />
+					</div> -->
+					<div class="input-group">
+						<label for="email">Email</label>
+						<input type="email" name="email" placeholder="Email" />
+					</div>
+					<div class="input-group">
+						<label for="password">Mật khẩu</label>
+						<input type="password" name="matkhau" placeholder="Mật khẩu" />
+					</div>
+				</div>
+				<div>
+					<button type="submit">ĐĂNG KÝ</button>
+				</div>
+			</form>
+		</div>
+
+		<div class="form-container sign-in-container">
+			<form action="dangnhap.php" method="POST">
+				<h1>ĐĂNG NHẬP</h1>
+				<div class="form-fields">
+					<div class="input-group">
+						<label for="username">Tên đăng nhập</label>
+						<input name="username" placeholder="Tên đăng nhập" required />
+					</div>
+					<div class="input-group">
+						<label for="password">Mật khẩu</label>
+						<input type="password" name="password" placeholder="Mật khẩu" required />
+					</div>
+				</div>
+				<div>
+					<button type="submit">Đăng nhập</button>
+				</div>
+				<div style="text-align: right; width: 100%;">
+					<a href="#">Quên mật khẩu?</a>
+				</div>
+			</form>
+		</div>
 
       <div class="form-container sign-in-container">
         <form action="dangnhap.php" method="POST">
