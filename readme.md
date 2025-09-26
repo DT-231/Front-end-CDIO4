@@ -1,11 +1,9 @@
 # 📚 Hướng dẫn Git cho nhóm - CDIO Front-End
 
 ## 🚀 Giới thiệu
-
 Đây là hướng dẫn Git cơ bản dành cho thành viên mới trong nhóm. Tài liệu này sẽ giúp bạn hiểu và sử dụng Git một cách hiệu quả trong dự án CDIO.
 
 ## 📋 Mục lục
-
 - [Cài đặt và thiết lập](#cài-đặt-và-thiết-lập)
 - [Quy trình làm việc cơ bản](#quy-trình-làm-việc-cơ-bản)
 - [Các lệnh Git thường dùng](#các-lệnh-git-thường-dùng)
@@ -17,7 +15,6 @@
 ## ⚙️ Cài đặt và thiết lập
 
 ### 1. Cài đặt Git
-
 ```bash
 # macOS (sử dụng Homebrew)
 brew install git
@@ -28,14 +25,12 @@ sudo apt-get install git
 ```
 
 ### 2. Thiết lập thông tin cá nhân
-
 ```bash
 git config --global user.name "Tên của bạn"
 git config --global user.email "email@example.com"
 ```
 
 ### 3. Clone repository
-
 ```bash
 git clone https://github.com/DT-231/Front-end-CDIO4.git
 cd Front-end-CDIO4
@@ -44,20 +39,17 @@ cd Front-end-CDIO4
 ## 🔄 Quy trình làm việc cơ bản
 
 ### Bước 1: Cập nhật code mới nhất
-
 ```bash
 git checkout dev
 git pull origin dev
 ```
 
-### Bước 2: Tạo branch mớiHoaiAnh_Login
-
+### Bước 2: Tạo branch mới
 ```bash
 git checkout -b feature/ten-tinh-nang
 ```
 
 ### Bước 3: Thực hiện thay đổi và commit
-
 ```bash
 # Thêm file đã thay đổi
 git add .
@@ -70,13 +62,11 @@ git commit -m "feat: thêm chức năng đăng nhập"
 ```
 
 ### Bước 4: Push branch lên remote
-
 ```bash
 git push origin feature/ten-tinh-nang
 ```
 
 ### Bước 5: Tạo Pull Request
-
 - Vào GitHub repository
 - Chọn "New Pull Request"
 - So sánh branch của bạn với `dev`
@@ -88,7 +78,6 @@ git push origin feature/ten-tinh-nang
 > **⚠️ Lưu ý**: Đây là quy trình chuẩn mà tất cả thành viên phải tuân theo!
 
 ### 📋 Quy tắc chung:
-
 - **Luôn làm việc trên nhánh `dev`** trước khi tạo nhánh mới
 - **Không bao giờ push trực tiếp** lên nhánh `dev`
 - **Luôn tạo Pull Request** và đợi leader merge
@@ -97,7 +86,6 @@ git push origin feature/ten-tinh-nang
 ### 🔄 Quy trình chi tiết:
 
 #### Bước 1: Chuẩn bị làm việc
-
 ```bash
 # Chuyển về nhánh dev
 git checkout dev
@@ -107,7 +95,6 @@ git pull origin dev
 ```
 
 #### Bước 2: Tạo nhánh mới cho task
-
 ```bash
 # Tạo nhánh mới từ dev
 git checkout -b feature/ten-task-cua-ban
@@ -119,7 +106,6 @@ git checkout -b feature/product-list
 ```
 
 #### Bước 3: Viết code và commit
-
 ```bash
 # Thực hiện thay đổi code...
 
@@ -134,7 +120,6 @@ git commit -m "feat: hoàn thành trang đăng nhập"
 ```
 
 #### Bước 4: Push nhánh lên GitHub
-
 ```bash
 # Push nhánh mới lên remote
 git push origin feature/ten-task-cua-ban
@@ -144,37 +129,32 @@ git push origin feature/login-page
 ```
 
 #### Bước 5: Tạo Pull Request
-
 1. Vào GitHub repository: https://github.com/DT-231/Front-end-CDIO4
 2. Sẽ thấy thông báo "Compare & pull request" → Click vào
 3. **Đảm bảo**: Base branch là `dev` (không phải `main`)
 4. Viết tiêu đề và mô tả chi tiết:
-
    ```
    feat: Hoàn thành trang đăng nhập
-
+   
    ## Thay đổi:
    - Thêm form đăng nhập
    - Validation cho email và password
    - Responsive design cho mobile
-
+   
    ## Test:
    - [x] Form hoạt động đúng
    - [x] Responsive trên mobile
    - [x] Không có lỗi console
    ```
-
 5. **Assign reviewer**: Chọn leader làm reviewer
 6. Click "Create Pull Request"
 
 #### Bước 6: Đợi review và merge
-
 - **Đợi leader review** và approve
 - **Không tự merge** Pull Request
 - Nếu có feedback, sửa và push thêm commit vào cùng nhánh
 
 #### Bước 7: Sau khi được merge
-
 ```bash
 # Chuyển về nhánh dev
 git checkout dev
@@ -189,7 +169,6 @@ git branch -d feature/ten-task-cua-ban
 ### 🚨 Những điều TUYỆT ĐỐI KHÔNG được làm:
 
 ❌ **KHÔNG push trực tiếp lên nhánh `dev`:**
-
 ```bash
 # KHÔNG BAO GIỜ làm như này!
 git checkout dev
@@ -197,7 +176,6 @@ git push origin dev
 ```
 
 ❌ **KHÔNG làm việc trực tiếp trên nhánh `dev`:**
-
 ```bash
 # SAI! Không commit trực tiếp trên dev
 git checkout dev
@@ -208,7 +186,6 @@ git commit -m "thay đổi gì đó"
 ❌ **KHÔNG merge Pull Request của chính mình**
 
 ❌ **KHÔNG force push:**
-
 ```bash
 # NGUY HIỂM! Có thể mất code của người khác
 git push --force
@@ -226,7 +203,6 @@ git push --force
 ### 💡 Tips hữu ích:
 
 **Khi gặp conflict:**
-
 ```bash
 # Pull code mới nhất từ dev vào nhánh của bạn
 git checkout feature/your-branch
@@ -240,14 +216,12 @@ git push origin feature/your-branch
 ```
 
 **Kiểm tra nhánh hiện tại:**
-
 ```bash
 git branch        # Xem nhánh local
 git status        # Xem trạng thái hiện tại
 ```
 
 **Xem lịch sử commit:**
-
 ```bash
 git log --oneline -10    # Xem 10 commit gần nhất
 ```
@@ -255,7 +229,6 @@ git log --oneline -10    # Xem 10 commit gần nhất
 ## 📝 Các lệnh Git thường dùng
 
 ### Quản lý branch
-
 ```bash
 # Xem danh sách branch
 git branch
@@ -277,7 +250,6 @@ git push origin --delete <tên-branch>
 ```
 
 ### Quản lý thay đổi
-
 ```bash
 # Xem trạng thái hiện tại
 git status
@@ -296,7 +268,6 @@ git reset HEAD <file>
 ```
 
 ### Đồng bộ với remote
-
 ```bash
 # Lấy thông tin mới nhất từ remote
 git fetch
@@ -313,7 +284,6 @@ git push origin <branch-name>
 ### Cấu trúc: `<type>/<description>`
 
 **Types:**
-
 - `feature/` - Tính năng mới
 - `bugfix/` - Sửa lỗi
 - `hotfix/` - Sửa lỗi khẩn cấp
@@ -321,7 +291,6 @@ git push origin <branch-name>
 - `docs/` - Cập nhật tài liệu
 
 **Ví dụ:**
-
 ```bash
 feature/login-form
 bugfix/header-responsive
@@ -335,7 +304,6 @@ docs/api-documentation
 ### Cấu trúc: `<type>(<scope>): <description>`
 
 **Types:**
-
 - `feat` - Tính năng mới
 - `fix` - Sửa lỗi
 - `docs` - Thay đổi tài liệu
@@ -345,7 +313,6 @@ docs/api-documentation
 - `chore` - Thay đổi build process, tools
 
 **Ví dụ:**
-
 ```bash
 feat(auth): thêm chức năng đăng nhập bằng Google
 fix(header): sửa lỗi responsive trên mobile
@@ -359,7 +326,6 @@ chore(deps): cập nhật dependencies
 ## ⚠️ Xử lý conflict
 
 ### Khi gặp conflict:
-
 1. **Không panic!** Conflict là điều bình thường
 2. Mở file có conflict trong editor
 3. Tìm các dấu hiệu conflict:
@@ -381,7 +347,6 @@ chore(deps): cập nhật dependencies
 ## ✨ Best Practices
 
 ### 🎯 Quy tắc chung
-
 - **Luôn pull code mới nhất** trước khi bắt đầu làm việc
 - **Commit thường xuyên** với message rõ ràng
 - **Không commit code broken** lên branch chung
@@ -389,7 +354,6 @@ chore(deps): cập nhật dependencies
 - **Sử dụng .gitignore** để loại bỏ file không cần thiết
 
 ### 📁 Cấu trúc project
-
 ```
 Front-End/
 ├── assets/          # Hình ảnh, fonts, icons
@@ -401,7 +365,6 @@ Front-End/
 ```
 
 ### 🚫 Tránh commit những file sau:
-
 - `node_modules/`
 - `.DS_Store`
 - `*.log`
@@ -409,7 +372,6 @@ Front-End/
 - File cache và temp
 
 ### 🔍 Trước khi commit:
-
 ```bash
 # Kiểm tra status
 git status
@@ -427,7 +389,6 @@ npm test
 ## 🆘 Các tình huống thường gặp
 
 ### 1. Quên pull code mới nhất
-
 ```bash
 git stash                    # Lưu thay đổi tạm thời
 git pull origin dev          # Pull code mới
@@ -435,7 +396,6 @@ git stash pop               # Lấy lại thay đổi
 ```
 
 ### 2. Commit nhầm file
-
 ```bash
 # Hoàn tác commit cuối (giữ thay đổi)
 git reset --soft HEAD~1
@@ -445,19 +405,16 @@ git reset --hard HEAD~1
 ```
 
 ### 3. Đổi tên commit cuối
-
 ```bash
 git commit --amend -m "commit message mới"
 ```
 
 ### 4. Chuyển commit sang branch khác
-
 ```bash
 git cherry-pick <commit-hash>
 ```
 
 ### 5. Đồng bộ nhánh của mình với dev mới nhất
-
 ```bash
 # Khi dev đã có code mới và bạn muốn cập nhật vào nhánh đang làm
 git checkout feature/your-branch
@@ -469,7 +426,6 @@ git commit -m "resolve: cập nhật từ dev branch"
 ```
 
 ### 6. Hủy Pull Request và làm lại
-
 ```bash
 # Nếu muốn hủy PR và làm lại từ đầu
 git checkout dev
@@ -479,7 +435,6 @@ git checkout -b feature/new-branch  # Tạo nhánh mới
 ```
 
 ### 7. Leader đã merge, nhưng quên pull về
-
 ```bash
 # Luôn nhớ pull sau khi leader merge
 git checkout dev
@@ -492,30 +447,26 @@ git log --oneline -5
 ## 📞 Hỗ trợ
 
 Nếu gặp vấn đề, hãy:
-
 1. Đọc lại hướng dẫn này
 2. Hỏi trong group chat
 3. Tham khảo [Git Documentation](https://git-scm.com/docs)
 4. Sử dụng `git --help <command>` để xem hướng dẫn
 
 ## 👥 Team Members
-
 - **Repository:** [Front-end-CDIO4](https://github.com/DT-231/Front-end-CDIO4)
 - **Current Branch:** dev
-- **Main Branches:**
+- **Main Branches:** 
   - `main` - Production code
   - `dev` - Development code (nhánh chính để merge)
 - **Team Leader:** Chịu trách nhiệm review và merge Pull Request
 - **Team Members:** Tạo nhánh từ `dev`, viết code, và tạo Pull Request
 
 ### 📞 Quy trình liên lạc:
-
 1. **Trước khi bắt đầu task:** Thông báo trong group chat
 2. **Khi gặp vấn đề:** Hỏi trong group hoặc tag leader
 3. **Sau khi hoàn thành:** Tạo PR và thông báo để leader review
 4. **Sau khi được merge:** Thông báo team để mọi người pull code mới
 
 ---
-
-_Cập nhật lần cuối: September 2025_
-_Quy trình này áp dụng cho tất cả thành viên nhóm CDIO Front-End_
+*Cập nhật lần cuối: September 2025*
+*Quy trình này áp dụng cho tất cả thành viên nhóm CDIO Front-End*
