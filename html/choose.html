@@ -1,104 +1,75 @@
 ta<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Choose Category</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <!-- Liên kết CSS -->
-    <link rel="stylesheet" href="../css/choose.css" />
-  </head>
-  <body class="bg-[#181818]">
-    <!-- Sidebar -->
-    <div id="sidebar-container"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Choose Category</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Liên kết CSS -->
+  <link rel="stylesheet" href="../css/choose.css" />
+</head>
+<body class="bg-[#181818]"> 
+  <!-- Sidebar -->
+  <div id="sidebar-container"></div>
 
-    <!-- Main content -->
-    <div class="main-content min-h-screen bg-[#f6f6f6]">
-      <!-- Header -->
-      <header
-        class="flex items-center justify-between px-8 py-4 border-b bg-white"
-      >
-        <h1 class="text-xl font-semibold">Choose category</h1>
-        <div class="relative">
-          <input
-            type="text"
-            id="search-input"
-            placeholder="Search category or menu"
-            class="pl-4 pr-10 py-2 rounded-full border border-gray-300 focus:outline-none focus:border-[#11603c] w-80"
-          />
-          <i
-            class="fa-solid fa-magnifying-glass absolute right-4 top-1/2 -translate-y-1/2 text-gray-500"
-          ></i>
-        </div>
-      </header>
+  <!-- Main content -->
+  <div class="main-content min-h-screen bg-[#f6f6f6]">
+    <!-- Header -->
+    <header class="flex items-center justify-between px-8 py-4 border-b bg-white">
+      <h1 class="text-xl font-semibold">Choose category</h1>
+      <div class="relative">
+        <input type="text" id="search-input" placeholder="Search category or menu"
+          class="pl-4 pr-10 py-2 rounded-full border border-gray-300 focus:outline-none focus:border-[#11603c] w-80" />
+        <i class="fa-solid fa-magnifying-glass absolute right-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
+      </div>
+    </header>
 
-      <!-- Category buttons -->
-      <section class="px-8 py-4">
-        <div class="flex gap-4 mb-4">
-          <!-- Add new -->
-          <button
-            class="flex flex-col items-center justify-center w-16 h-16 rounded-lg bg-[#e6faf3]"
-          >
-            <i class="fa-solid fa-plus text-3xl text-[#11603c]"></i>
-          </button>
+    <!-- Category buttons -->
+    <section class="px-8 py-4">
+      <div class="flex gap-4 mb-4">
+        <!-- Add new -->
+        <button class="flex flex-col items-center justify-center w-16 h-16 rounded-lg bg-[#e6faf3]">
+          <i class="fa-solid fa-plus text-3xl text-[#11603c]"></i>
+        </button>
 
-          <!-- All -->
-          <button
-            data-category="all"
-            class="category-btn flex flex-col items-center justify-center w-16 h-16 rounded-lg border-2 border-[#11603c] bg-white text-[#11603c] font-bold active-category"
-          >
-            <i class="fa-solid fa-table-cells-large text-2xl mb-1"></i>
-            <span class="text-base">All</span>
-          </button>
+        <!-- All -->
+        <button data-category="all"
+          class="category-btn flex flex-col items-center justify-center w-16 h-16 rounded-lg border-2 border-[#11603c] bg-white text-[#11603c] font-bold active-category">
+          <i class="fa-solid fa-table-cells-large text-2xl mb-1"></i>
+          <span class="text-base">All</span>
+        </button>
 
-          <!-- Coffee -->
-          <button
-            data-category="coffee"
-            class="category-btn flex flex-col items-center justify-center w-16 h-16 rounded-lg bg-white text-[#11603c]"
-          >
-            <img
-              src="../assets/coffee.webp"
-              alt="Coffee"
-              class="w-8 h-8 mb-1"
-            />
-            <span class="text-base font-semibold">Coffee</span>
-          </button>
+        <!-- Coffee -->
+        <button data-category="coffee"
+          class="category-btn flex flex-col items-center justify-center w-16 h-16 rounded-lg bg-white text-[#11603c]">
+          <img src="../assets/coffee.webp" alt="Coffee" class="w-8 h-8 mb-1" />
+          <span class="text-base font-semibold">Coffee</span>
+        </button>
 
-          <!-- Tea -->
-          <button
-            data-category="tea"
-            class="category-btn flex flex-col items-center justify-center w-16 h-16 rounded-lg bg-white text-[#11603c]"
-          >
-            <i class="fa-solid fa-leaf text-2xl mb-1"></i>
-            <span class="text-base font-semibold">Tea</span>
-          </button>
+        <!-- Tea -->
+        <button data-category="tea"
+          class="category-btn flex flex-col items-center justify-center w-16 h-16 rounded-lg bg-white text-[#11603c]">
+          <i class="fa-solid fa-leaf text-2xl mb-1"></i>
+          <span class="text-base font-semibold">Tea</span>
+        </button>
 
-          <!-- Juice -->
-          <button
-            data-category="juice"
-            class="category-btn flex flex-col items-center justify-center w-16 h-16 rounded-lg bg-white text-[#11603c]"
-          >
-            <i class="fa-solid fa-wine-glass text-2xl mb-1"></i>
-            <span class="text-base font-semibold">Juice</span>
-          </button>
-        </div>
+        <!-- Juice -->
+        <button data-category="juice"
+          class="category-btn flex flex-col items-center justify-center w-16 h-16 rounded-lg bg-white text-[#11603c]">
+          <i class="fa-solid fa-wine-glass text-2xl mb-1"></i>
+          <span class="text-base font-semibold">Juice</span>
+        </button>
+      </div>
 
-        <!-- Action button -->
-        <div class="flex justify-end mb-4">
-          <button
-            class="bg-[#11603c] text-white px-8 py-2 rounded-lg font-semibold hover:bg-[#0d4c2a] transition"
-          >
-            Thêm món
-          </button>
-        </div>
+      <!-- Action button -->
+      <div class="flex justify-end mb-4">
+        <button class="bg-[#11603c] text-white px-8 py-2 rounded-lg font-semibold hover:bg-[#0d4c2a] transition">
+          Thêm món
+        </button>
+      </div>
 
-        <!-- Menu container -->
-<!-- Menu container -->
-
+      <!-- Menu container -->
       <div id="menu-container" class="grid grid-cols-4 gap-6 px-8 pb-8 w-[95%]"></div>
       <!-- Menu card -->
       <template id="menu-card-template">
@@ -166,9 +137,7 @@ ta<!DOCTYPE html>
           </div>
         </div>
       </template>
-
-    <!-- Script -->
-    <script src="../js/choose.js"></script>
-  </body>
+      <!-- Script -->
+      <script src="../js/choose.js"></script>
+</body>
 </html>
-
