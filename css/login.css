@@ -136,6 +136,7 @@ input {
   display: flex;
   flex-direction: column;
   align-items: stretch;
+
 }
 
 .container.right-panel-active .sign-up-container {
@@ -247,4 +248,5 @@ footer i {
 footer a {
   color: #3c97bf;
   text-decoration: none;
+
 }
