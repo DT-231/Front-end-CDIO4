@@ -1,19 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
 
 :root {
   /* Font */
   --font-primary: "Inter", sans-serif;
-  --font-mont: 'Montserrat', sans-serif;
+  --font-mont: "Montserrat", sans-serif;
 
   /* Colors */
-  --color-black: #000000;   /* Đen */
-  --color-green: #006341;   /* Xanh */
-  --color-gray-light: #F7F7F7; /* Xám nhạt */
-  --color-gray-dark: #242221;  /* Xám đậm */
-  --color-white: #FFFFFF;   /* Trắng */
-  --color-green-light:#30F265;  /* Xanh nhạt */
-
+  --color-black: #000000; /* Đen */
+  --color-green: #006341; /* Xanh */
+  --color-gray-light: #f7f7f7; /* Xám nhạt */
+  --color-gray-dark: #242221; /* Xám đậm */
+  --color-white: #ffffff; /* Trắng */
+  --color-green-light: #30f265; /* Xanh nhạt */
 }
 /* 
 * {
@@ -23,4 +22,3 @@
   font-size: 18px;
   font-family: var(--font-mont);
 } */
-
