@@ -37,7 +37,6 @@ if (registerForm) {
       const data = await res.json();
 
       if (res.ok) {
-        alert("Đăng ký thành công!");
         console.log("User đăng ký:", data);
         container.classList.remove("right-panel-active"); // Chuyển sang login
       } else {
@@ -68,7 +67,6 @@ if (loginForm) {
 
       const data = await res.json();
       if (res.ok) {
-        alert("Đăng nhập thành công");
         localStorage.setItem("token", data.data.token.access_token);
         window.location.href = "../html/choose.html";
       } else {
