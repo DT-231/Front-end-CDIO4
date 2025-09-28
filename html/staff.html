@@ -124,37 +124,102 @@
   </template>
 
   <template id="staff-list-template">
-  <div class="bg-white rounded-xl shadow flex items-center justify-between px-4 py-3">
-    <!-- Avatar -->
-    <div class="flex items-center gap-3 w-1/4">
-      <div class="w-10 h-10 bg-black text-white flex items-center justify-center rounded-full font-bold">NV</div>
-      <div>
-        <div class="font-bold staff-name"></div>
-        <div class="text-[#11603c] text-sm staff-role"></div>
+    <div class="bg-white rounded-xl shadow flex items-center justify-between px-4 py-3">
+      <!-- Avatar -->
+      <div class="flex items-center gap-3 w-1/4">
+        <div class="w-10 h-10 bg-black text-white flex items-center justify-center rounded-full font-bold">NV</div>
+        <div>
+          <div class="font-bold staff-name"></div>
+          <div class="text-[#11603c] text-sm staff-role"></div>
+        </div>
+      </div>
+
+      <!-- Mã NV -->
+      <div class="font-bold w-1/12 staff-id"></div>
+
+      <!-- Ca làm -->
+      <div class="w-1/6">
+        <span class="px-3 py-1 text-sm rounded-full bg-green-100 text-[#11603c] font-semibold staff-shift"></span>
+      </div>
+
+      <!-- Số điện thoại -->
+      <div class="w-1/6 staff-phone"></div>
+
+      <!-- Ngày vào -->
+      <div class="w-1/6 staff-date"></div>
+
+      <!-- Trạng thái -->
+      <div class="flex items-center gap-2 w-1/6">
+        <span class="w-2 h-2 bg-green-600 rounded-full"></span>
+        <span class="text-[#11603c] font-semibold staff-status">Đang làm việc</span>
       </div>
     </div>
+  </template>
 
-    <!-- Mã NV -->
-    <div class="font-bold w-1/12 staff-id"></div>
+  <!-- Form -->
+  <form id="add-staff-form" class="p-4 space-y-1">
+    <!-- Ảnh đại diện -->
+    <label class="text-sm text-gray-700 mb-px font-bold">Ảnh đại diện</label>
+    <div class="flex flex-col items-center">
+      <div class="w-24 h-24 border-2 border-dashed border-gray-300 rounded-full flex items-center justify-center mb-2">
+        <span class="text-gray-400">Upload</span>
+      </div>
+      <input type="file" class="hidden" id="avatar" />
+      <button type="button" class="bg-[#11603c] text-white px-4 py-1 rounded-lg text-sm">Chọn ảnh</button>
+    </div>
 
-    <!-- Ca làm -->
-    <div class="w-1/6">
-      <span class="px-3 py-1 text-sm rounded-full bg-green-100 text-[#11603c] font-semibold staff-shift"></span>
+    <!-- Họ và tên -->
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Họ và tên *</label>
+      <input id="full_name" type="text" placeholder="Nhập họ và tên đầy đủ"
+        class="mt-1 w-full border rounded-lg px-3 py-2 focus:ring-[#006341] focus:border-[#006341]">
+    </div>
+
+    <!-- Chức vụ -->
+    <div>
+      <label class="block text-sm mb-1">Chức vụ *</label>
+      <select id="role" class="w-full border rounded-lg px-3 py-2">
+        <option value="3">Staff</option>
+        <option value="2">Manager</option>
+        <option value="1">Admin</option>
+      </select>
+    </div>
+
+    <!-- Mã nhân viên -->
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Mã nhân viên *</label>
+      <input id="staff_id" type="text" placeholder="VD: NV001"
+        class="mt-1 w-full border rounded-lg px-3 py-2 focus:ring-[#006341] focus:border-[#006341]">
     </div>
 
     <!-- Số điện thoại -->
-    <div class="w-1/6 staff-phone"></div>
-
-    <!-- Ngày vào -->
-    <div class="w-1/6 staff-date"></div>
-
-    <!-- Trạng thái -->
-    <div class="flex items-center gap-2 w-1/6">
-      <span class="w-2 h-2 bg-green-600 rounded-full"></span>
-      <span class="text-[#11603c] font-semibold staff-status">Đang làm việc</span>
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Số điện thoại *</label>
+      <input id="phone" type="text" placeholder="VD: 0901234567"
+        class="mt-1 w-full border rounded-lg px-3 py-2 focus:ring-[#006341] focus:border-[#006341]">
     </div>
-  </div>
-</template>
+
+    <!-- Ngày bắt đầu làm việc -->
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Ngày bắt đầu làm việc *</label>
+      <input id="start_date" type="date"
+        class="mt-1 w-full border rounded-lg px-3 py-2 focus:ring-[#006341] focus:border-[#006341]">
+    </div>
+
+    <!-- Ghi chú -->
+    <p class="text-xs text-[#006341]">* Các trường bắt buộc phải điền</p>
+
+    <!-- Nút hành động -->
+    <div class="flex justify-between pt-2">
+      <button id="cancel-btn" type="button"
+        class="px-6 py-2 border border-black rounded-full text-black hover:bg-gray-100">
+        HỦY BỎ
+      </button>
+      <button type="submit" class="px-6 py-2 bg-[#006341] text-white rounded-full hover:bg-green-800">
+        THÊM NHÂN VIÊN
+      </button>
+    </div>
+  </form>
 
   <!-- JS -->
   <script src="../js/staff.js"></script>
